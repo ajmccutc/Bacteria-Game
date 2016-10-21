@@ -1,86 +1,108 @@
 
-alert("Objective:\n Use the mouse to click on the bacteria growing on the circumference of the circle.\nThere is about 10 different types of bacteria, each with a different color");
 var canvas;
 var gl;
-var tri;
+
+var points = [];
+
+var numTimesToSubdivide = 0;
+
+var bufferId;
+
+function init()
+{
+    canvas = document.getElementById( "gl-canvas" );
+    
+    gl = WebGLUtils.setupWebGL( canvas );
+    if ( !gl ) { alert( "WebGL isn't available" ); }
+        
+    //
+    //  Initialize our data for the Sierpinski Gasket
+    //
+
+    // First, initialize the corners of our gasket with three points.
+    
+
+    //
+    //  Configure WebGL
+    //
+    gl.viewport( 0, 0, canvas.width, canvas.height );
+    gl.clearColor( 1.0, 1.0, 1.0, 1.0 );
+
+    //  Load shaders and initialize attribute buffers
+    
+    var program = initShaders( gl, "vertex-shader", "fragment-shader" );
+    gl.useProgram( program );
+
+    // Load the data into the GPU
+    
+    bufferId = gl.createBuffer();
+    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId );
+    gl.bufferData( gl.ARRAY_BUFFER, 8*Math.pow(3, 6), gl.STATIC_DRAW );
 
 
 
-var p= [x,y];
-var n =p.length;
-var p = new Float32Array([x,y]);
-p[0]=x;
-p[1]=y;
-
-var a = vec2(1.0,2.0);
-var b =vec2(2,1);
-var c = vec2(0,0);
-
-var lightPosition = vec4(0.0, 0.0, 0.0, 0.0 );
-var lightAmbient = vec4(0.0, 0.8, 0.8, 0.0 );
-var lightDiffuse = vec4( 0.0, 0.0, 0.0, 0.0 );
-var lightSpecular = vec4( 0.0, 0.0, 0.0, 0.0 );
-
-var materialAmbient = vec4( 1.0, 0.0, 1.0, 1.0 );
-var materialDiffuse = vec4( 1.0, 0.8, 0.0, 1.0 );
-var materialSpecular = vec4( 1.0, 0.8, 0.0, 1.0 );
-var materialShininess = 100.0;
-
-var ctm;
-var ambientColor, diffuseColor, specularColor;
-
-var modelViewMatrix, projectionMatrix;
-var modelViewMatrixLoc, projectionMatrixLoc;
-var eye;
-var at = vec3(0.0, 0.0, 0.0);
-var up = vec3(0.0, 1.0, 0.0);
-gl.viewport(x,y,w,h);
-gl.clearColor(1.0,1.0,1.0,1.0);
+    // Associate out shader variables with our data buffer
+    
+    var vPosition = gl.getAttribLocation( program, "vPosition" );
+    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+    gl.enableVertexAttribArray( vPosition );
+    
+        document.getElementById("slider").onchange = function(event) {
+        numTimesToSubdivide = event.target.value;
+        render();
+    };
 
 
-var vertices = [
-    vec2(-1.0,-1.0);
-    vec2(1.0,-1.0);
-    vec2(0.0,1.0);
-]
-const numPoints = 5000;
+    render();
+};
 
-onload = myFunction;
-var vertices2=[
-    vec2(-1,-1);
-    vec2(0,0);
-    vec2(0,-1);
-]
-var u=add(vertices[0],vertices[1]);
-var u=add(vertices[0],vertices[2]);
-
-for (var i=0;points.length < numpoints; i++){
-    p=add(points[i],vertices[j]);
-    points.push(p)
+function triangle( a, b, c )
+{
+    points.push( a, b, c );
 }
 
-gl.bufferData(gl.ARRAY_BUFFER, flatten(points), gl.STATIC_DRAW);
-render();
+function divideTriangle( a, b, c, count )
+{
 
-
-function render() {
+    // check for end of recursion
     
-    gl.clear( gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    if ( count == 0 ) {
+        triangle( a, b, c );
+    }
+    else {
+    
+        //bisect the sides
+        
+        var ab = mix( a, b, 0.5 );
+        var ac = mix( a, c, 0.5 );
+        var bc = mix( b, c, 0.5 );
 
-    eye = vec3(radius*Math.sin(theta)*Math.cos(phi), 
-        radius*Math.sin(theta)*Math.sin(phi), radius*Math.cos(theta));
+        --count;
 
-    modelViewMatrix = lookAt(eye, at , up);
-    projectionMatrix = ortho(left, right, bottom, ytop, near, far);
-            
-    gl.uniformMatrix4fv(modelViewMatrixLoc, false, flatten(modelViewMatrix) );
-    gl.uniformMatrix4fv(projectionMatrixLoc, false, flatten(projectionMatrix) );
+        // three new triangles
+        
+        divideTriangle( a, ab, ac, count );
+        divideTriangle( c, ac, bc, count );
+        divideTriangle( b, bc, ab, count );
+    }
+}
 
-     gl.drawArrays(gl.TRIANGLE_FAN, 0, 3);// TRIANGLE_FAN
+window.onload = init;
 
-    for( var i=0; i<index; i+=5)                //blue circle
-        gl.drawArrays( gl.TRIANGLES, i, 3 );
+function render()
+{
+    var vertices = [
+        vec2( -1, -1 ),
+        vec2(  0,  1 ),
+        vec2(  1, -1 )
+    ];
+    points = [];
+    divideTriangle( vertices[0], vertices[1], vertices[2],
+                    numTimesToSubdivide);
 
-
-    window.requestAnimFrame(render);
+    gl.bufferSubData(gl.ARRAY_BUFFER, 0, flatten(points));
+    gl.clear( gl.COLOR_BUFFER_BIT );
+    gl.drawArrays( gl.TRIANGLES, 0, points.length );
+    points = [];
+    //requestAnimFrame(render);
 }

@@ -241,7 +241,7 @@ window.onload = function init() {
             return shader;
         }
 
-        render();
+        //render();
     };
 
     gl.uniform4fv( gl.getUniformLocation(program, "ambientProduct"),flatten(ambientProduct) );
