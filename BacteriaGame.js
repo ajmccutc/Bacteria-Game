@@ -1,5 +1,5 @@
 /**
-*   Create by Antoine Stavro
+*   Created by Antoine Stavro
 *   Due Date: Oct 27, 2016
 */
 
@@ -37,7 +37,7 @@ if(typeof(arr) == 'object') { //Array/Hashes/Objects
 return dumped_text;
 }
 
- 
+//Global Variables 
 var index = 0;
 
 var pointsArray = [];
@@ -79,30 +79,30 @@ var modelViewMatrixLoc, projectionMatrixLoc;
 var eye;
 var at = vec3(0.0, 0.0, 0.0);
 var up = vec3(0.0, 1.0, 0.0);
-    
+
+//Built in function from the textbook
 function triangle(a, b, c) {
 
-//NORE: normal is stored as a point, fourth e;lement is 1, //should be 0 (MB June 30)
-//alert(print_r(a));  
+    //NORE: normal is stored as a point, fourth e;lement is 1, //should be 0 (MB June 30)
+    //alert(print_r(a));  
 
-// setting normals to have last element 0
-n1=vec4(a)
-n2=vec4(b)
-n3=vec4(c)
-n1[3]=0.0; n2[3]=0.0; n3[3]=0.0;
+    // setting normals to have last element 0
+    n1=vec4(a)
+    n2=vec4(b)
+    n3=vec4(c)
+    n1[3]=0.0; n2[3]=0.0; n3[3]=0.0;
 
-//alert(print_r(n1)); 
-normalsArray.push(n1);
-normalsArray.push(n2);
-normalsArray.push(n3);
-     
+    //alert(print_r(n1)); 
+    normalsArray.push(n1);
+    normalsArray.push(n2);
+    normalsArray.push(n3);
 
-     
-     pointsArray.push(a);
-     pointsArray.push(b);      
-     pointsArray.push(c);
+    
+    pointsArray.push(a);
+    pointsArray.push(b);      
+    pointsArray.push(c);
 
-     index += 3;
+    index += 3;
 }
 
 
@@ -266,12 +266,13 @@ function render() {
             
     gl.uniformMatrix4fv(modelViewMatrixLoc, false, flatten(modelViewMatrix) );
     gl.uniformMatrix4fv(projectionMatrixLoc, false, flatten(projectionMatrix) );
-
-     gl.drawArrays(gl.TRIANGLE_FAN, 0, 3);// TRIANGLE_FAN
+    
+    //Triagle fan function that draws
+    gl.drawArrays(gl.TRIANGLE_FAN, 0, 3);// TRIANGLE_FAN
 
     for( var i=0; i<index; i+=5)                //blue circle
         gl.drawArrays( gl.TRIANGLES, i, 3 );
 
-
+    //recursive call to itself 
     window.requestAnimFrame(render);
 }
