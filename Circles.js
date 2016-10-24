@@ -1,3 +1,4 @@
+//fan variables
 var xCenterOfCircle;
 var yCenterOfCircle;
 var centerOfCircle;
@@ -9,6 +10,7 @@ var vPosition;
 
 var click = 0; 
 
+//empty vertices arras for use of bacteria
 var verticesFirstCircle = [];
 var verticesSecondCircle = [];
 var verticesThreeCircle = [];
@@ -25,7 +27,7 @@ var verticesThirteenCircle = [];
 var verticesFourteenCircle = [];
 var verticesFifteenCircle = [];
 
-
+//extra buffers
 var bufferId;
 var bufferId2;
 var bufferId3;
@@ -45,6 +47,7 @@ var bufferId15;
 var canvas;
 var gl;
 
+//timer
 var time = 300;
 var running = 0;
 var secs;
@@ -275,6 +278,7 @@ window.onload = function init()
     var program = initShaders( gl, "vertex-shader", "fragment-shader" );
     gl.useProgram( program );
 
+    //why so many different circle functions?
     firstCircle();
     secondCircle();
     thirdCircle();
@@ -626,7 +630,7 @@ function fifthteenCircle()
    }
 }
 
-
+//buffers in the render?
 function render()
 {
     gl.clear( gl.COLOR_BUFFER_BIT );
@@ -664,7 +668,7 @@ function render()
     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
     gl.drawArrays( gl.TRIANGLE_FAN, 0, verticesEightCircle.length );
 
-        gl.bindBuffer( gl.ARRAY_BUFFER, bufferId9 );
+    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId9 );
     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
     gl.drawArrays( gl.TRIANGLE_FAN, 0, verticesNineCircle.length );
 
