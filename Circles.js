@@ -295,6 +295,7 @@ window.onload = function init()
     fourteenCircle();
     fifthteenCircle();
 
+    //This is the "mouse click" event for the start button
     document.getElementById("start").onclick =  function(){
     
         startPause();
