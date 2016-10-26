@@ -53,6 +53,14 @@ var running = 0;
 var secs;
 var tenths;
 
+//mouse variables
+var mouseDown = false;
+var lastMouseX = null;
+var lastMouseY = null;
+var vec2coordinates = null;
+//This is an experiement to see what the colour of the object "under" the mouse is
+//this is so that we can remove the x,y,z references and make it "easier" to program
+var colouratmouse = null;
 
 window.onload = function init()
 {
@@ -279,6 +287,7 @@ window.onload = function init()
     gl.useProgram( program );
 
     //why so many different circle functions?
+    //need to randomize once finished mouse clicking events
     firstCircle();
     secondCircle();
     thirdCircle();
@@ -313,6 +322,31 @@ window.onload = function init()
     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
     gl.enableVertexAttribArray( vPosition );
 
+    
+    
+    
+    
+    
+    
+    //where the mouse event stuff will happen?
+    // set up some sample squares
+    //make an array of x,y coordinates for center of circles
+    
+    document.getElementById("gl-canvas").onclick = function(){
+        
+            lastMouseX = event.clientX;
+            lastMouseY = event.clientY;
+            vertexMouse = vec2(lastMouseX,lastMouseY);
+            for (var i = 0; i<verticesEightCircle.length;i++){
+                 //only checks if mouse clicks on vertices
+                if (verticesEightCircle[i]==vertexMouse ){
+                    
+                  
+            }
+                
+        }
+    }
+    
     render();
 }
 
@@ -357,6 +391,7 @@ function secondCircle()
         var point = vec2(xCoordinate, yCoordinate);
         verticesSecondCircle.push(point);
    }
+    
 }
 
 function thirdCircle()
@@ -632,6 +667,9 @@ function fifthteenCircle()
 }
 
 //buffers in the render?
+
+
+//add if statements to circles so that if alive then drwa otherwise don't draw
 function render()
 {
     gl.clear( gl.COLOR_BUFFER_BIT );
