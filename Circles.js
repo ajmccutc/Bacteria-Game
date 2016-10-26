@@ -2,12 +2,13 @@
 var xCenterOfCircle;
 var yCenterOfCircle;
 var centerOfCircle;
-var radiusOfCircle = 0.05;
+var expansionvariable=.05; //used for expanding the cirles
+var radiusOfCircle = expansionvariable;
 var ATTRIBUTES = 2;
 var noOfFans = 80;
 var anglePerFan;
 var vPosition;
-
+var count=.05;  //counter for expansion
 var click = 0; 
 
 //empty vertices arras for use of bacteria
@@ -43,7 +44,7 @@ var bufferId12;
 var bufferId13;
 var bufferId14;
 var bufferId15;
-
+var expansionvariable=.05 //used for expanding the cirles
 var canvas;
 var gl;
 
@@ -100,6 +101,14 @@ window.onload = function init()
                 }
                 else if(secs == 27)
                 {
+                    bufferId2 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId2 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSecondCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
                     bufferId3 = gl.createBuffer();
                     gl.bindBuffer( gl.ARRAY_BUFFER, bufferId3 );
                     gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThreeCircle), gl.STATIC_DRAW );
@@ -107,7 +116,7 @@ window.onload = function init()
                     vPosition = gl.getAttribLocation( program, "vPosition" );
                     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
                     gl.enableVertexAttribArray( vPosition );
-
+count=count+1;
                     render();
                 }
                 else if(secs == 25)
@@ -119,7 +128,25 @@ window.onload = function init()
                     vPosition = gl.getAttribLocation( program, "vPosition" );
                     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
                     gl.enableVertexAttribArray( vPosition );
+                    
+                    
+                    bufferId2 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId2 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSecondCircle), gl.STATIC_DRAW );
 
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId3 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId3 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThreeCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    count=count+1;
                     render();
                 }
                 else if(secs == 23)
@@ -132,6 +159,33 @@ window.onload = function init()
                     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
                     gl.enableVertexAttribArray( vPosition );
 
+                    
+                    bufferId4 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId4 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFourCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    
+                    bufferId2 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId2 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSecondCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId3 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId3 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThreeCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    count=count+1;
                     render();
                 }
                 else if(secs == 21)
@@ -144,6 +198,45 @@ window.onload = function init()
                     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
                     gl.enableVertexAttribArray( vPosition );
 
+                    
+                    
+                    
+                    bufferId5 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId5 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFiveCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId4 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId4 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFourCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    
+                    bufferId2 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId2 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSecondCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId3 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId3 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThreeCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    count=count+1;
+                    
+                    
                     render();
                 }
                 else if(secs == 19)
@@ -156,6 +249,54 @@ window.onload = function init()
                     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
                     gl.enableVertexAttribArray( vPosition );
 
+                    
+                    
+                    bufferId6 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId6 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSixCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    
+                    bufferId5 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId5 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFiveCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId4 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId4 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFourCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    
+                    bufferId2 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId2 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSecondCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId3 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId3 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThreeCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                             count=count+1;           
                     render();
                 }
                 else if(secs == 17)
@@ -168,6 +309,63 @@ window.onload = function init()
                     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
                     gl.enableVertexAttribArray( vPosition );
 
+                    
+                    bufferId7 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId7 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSevenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    bufferId6 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId6 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSixCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    
+                    bufferId5 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId5 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFiveCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId4 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId4 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFourCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    
+                    bufferId2 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId2 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSecondCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId3 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId3 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThreeCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    count=count+1;
+                                           
                     render();
                 }
                 else if(secs == 15)
@@ -179,7 +377,71 @@ window.onload = function init()
                     vPosition = gl.getAttribLocation( program, "vPosition" );
                     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
                     gl.enableVertexAttribArray( vPosition );
+                    
+                                        bufferId8 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId8 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesEightCircle), gl.STATIC_DRAW );
 
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId7 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId7 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSevenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    bufferId6 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId6 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSixCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    
+                    bufferId5 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId5 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFiveCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId4 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId4 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFourCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    
+                    bufferId2 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId2 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSecondCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId3 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId3 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThreeCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+count=count+1;
                     render();
                 }
                 else if(secs == 13)
@@ -192,6 +454,79 @@ window.onload = function init()
                     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
                     gl.enableVertexAttribArray( vPosition );
 
+                    bufferId9 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId9 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesNineCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                                        bufferId8 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId8 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesEightCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId7 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId7 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSevenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    bufferId6 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId6 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSixCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    
+                    bufferId5 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId5 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFiveCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId4 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId4 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFourCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    
+                    bufferId2 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId2 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSecondCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId3 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId3 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThreeCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    count=count+1;
                     render();
                 }
                 else if(secs == 11)
@@ -204,6 +539,88 @@ window.onload = function init()
                     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
                     gl.enableVertexAttribArray( vPosition );
 
+                    
+                                        bufferId10 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId10 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesTenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    bufferId9 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId9 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesNineCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                                        bufferId8 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId8 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesEightCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId7 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId7 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSevenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    bufferId6 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId6 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSixCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    
+                    bufferId5 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId5 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFiveCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId4 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId4 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFourCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    
+                    bufferId2 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId2 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSecondCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId3 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId3 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThreeCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    
                     render();
                 }
                 else if(secs == 9)
@@ -215,6 +632,96 @@ window.onload = function init()
                     vPosition = gl.getAttribLocation( program, "vPosition" );
                     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
                     gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId11 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId11 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesElevenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                                        bufferId10 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId10 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesTenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    bufferId9 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId9 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesNineCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                                        bufferId8 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId8 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesEightCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId7 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId7 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSevenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    bufferId6 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId6 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSixCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    
+                    bufferId5 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId5 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFiveCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId4 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId4 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFourCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    
+                    bufferId2 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId2 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSecondCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId3 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId3 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThreeCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
 
                     render();
                 }
@@ -228,6 +735,104 @@ window.onload = function init()
                     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
                     gl.enableVertexAttribArray( vPosition );
 
+                    bufferId12 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId12 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesTwelveCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId11 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId11 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesElevenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                                        bufferId10 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId10 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesTenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    bufferId9 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId9 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesNineCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                                        bufferId8 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId8 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesEightCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId7 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId7 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSevenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    bufferId6 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId6 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSixCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    
+                    bufferId5 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId5 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFiveCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId4 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId4 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFourCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    
+                    bufferId2 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId2 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSecondCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId3 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId3 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThreeCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+
                     render();
                 }
                 else if(secs == 7)
@@ -240,6 +845,111 @@ window.onload = function init()
                     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
                     gl.enableVertexAttribArray( vPosition );
 
+                    bufferId13 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId13 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThirteenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    bufferId12 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId12 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesTwelveCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId11 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId11 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesElevenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                                        bufferId10 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId10 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesTenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    bufferId9 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId9 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesNineCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                                        bufferId8 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId8 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesEightCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId7 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId7 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSevenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    bufferId6 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId6 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSixCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    
+                    bufferId5 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId5 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFiveCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId4 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId4 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFourCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    
+                    bufferId2 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId2 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSecondCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId3 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId3 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThreeCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
                     render();
                 }
                 else if(secs == 5)
@@ -251,7 +961,119 @@ window.onload = function init()
                     vPosition = gl.getAttribLocation( program, "vPosition" );
                     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
                     gl.enableVertexAttribArray( vPosition );
+                    bufferId14 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId14 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFourteenCircle), gl.STATIC_DRAW );
 
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    bufferId13 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId13 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThirteenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    bufferId12 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId12 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesTwelveCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId11 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId11 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesElevenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId10 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId10 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesTenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    bufferId9 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId9 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesNineCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                                        bufferId8 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId8 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesEightCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId7 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId7 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSevenCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    bufferId6 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId6 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSixCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    
+                    
+                    bufferId5 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId5 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFiveCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+
+                    
+                    bufferId4 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId4 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesFourCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    
+                    bufferId2 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId2 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesSecondCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
+                    bufferId3 = gl.createBuffer();
+                    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId3 );
+                    gl.bufferData( gl.ARRAY_BUFFER, flatten(verticesThreeCircle), gl.STATIC_DRAW );
+
+                    vPosition = gl.getAttribLocation( program, "vPosition" );
+                    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+                    gl.enableVertexAttribArray( vPosition );
+                    
                     render();
                 }
                 else if(secs == -1)
@@ -301,6 +1123,7 @@ window.onload = function init()
         
     };
 
+
     // Load the data into the GPU
 
     //------First Circle--------
@@ -314,7 +1137,12 @@ window.onload = function init()
 
     render();
 }
-
+    //expanding circle function
+    
+function expandcircle()
+{
+    
+}
 
 function firstCircle()
 {
@@ -339,20 +1167,27 @@ function firstCircle()
 
 function secondCircle()
 {
+    
     xCenterOfCircle = 0.55;
     yCenterOfCircle = 0.0;
     centerOfCircle = vec2(0.55, 0.0);
     anglePerFan = (2*Math.PI) / noOfFans;
     verticesSecondCircle = [centerOfCircle];
-
+var expansionlocal;
+   
+    
+    
     for(var i = 0; i <= noOfFans; i++)
     {
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
         
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
-
+        expansionlocal=expansionvariable+count+.009;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
+        
+        
+        
         var point = vec2(xCoordinate, yCoordinate);
         verticesSecondCircle.push(point);
    }
@@ -360,6 +1195,7 @@ function secondCircle()
 
 function thirdCircle()
 {
+    secondCircle();
     xCenterOfCircle = 0.0;
     yCenterOfCircle = 0.55;
     centerOfCircle = vec2(0.0, 0.55);
@@ -370,9 +1206,11 @@ function thirdCircle()
     {
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
-        
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
+        var expansionlocal;
+        var count1=count/2;
+        expansionlocal=expansionvariable+count1;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
 
         var point = vec2(xCoordinate, yCoordinate);
         verticesThreeCircle.push(point);
@@ -380,20 +1218,22 @@ function thirdCircle()
 }
 
 function forthCircle()
-{
+{secondCircle();
     xCenterOfCircle = 0.0;
     yCenterOfCircle = -0.55;
     centerOfCircle = vec2(0.0, -0.55);
     anglePerFan = (2*Math.PI) / noOfFans;
     verticesFourCircle = [centerOfCircle];
-
+var count1=count/3;
     for(var i = 0; i <= noOfFans; i++)
     {
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
+        var expansionlocal;
         
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
+        expansionlocal=expansionvariable+count1;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
 
         var point = vec2(xCoordinate, yCoordinate);
         verticesFourCircle.push(point);
@@ -412,9 +1252,11 @@ function fifthCircle()
     {
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
-        
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
+        var expansionlocal;
+        var count1=count/4;
+        expansionlocal=expansionvariable+count1;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
 
         var point = vec2(xCoordinate, yCoordinate);
         verticesFiveCircle.push(point);
@@ -434,8 +1276,11 @@ function sixCircle()
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
         
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
+                var expansionlocal;
+        var count1=count/6;
+        expansionlocal=expansionvariable+count1;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
 
         var point = vec2(xCoordinate, yCoordinate);
         verticesSixCircle.push(point);
@@ -455,8 +1300,12 @@ function sevenCircle()
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
         
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
+        
+                var expansionlocal;
+        var count1=count/7;
+        expansionlocal=expansionvariable+count1;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
 
         var point = vec2(xCoordinate, yCoordinate);
         verticesSevenCircle.push(point);
@@ -476,8 +1325,12 @@ function eightCircle()
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
         
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
+        
+                var expansionlocal;
+        var count1=count/8;
+        expansionlocal=expansionvariable+count1;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
 
         var point = vec2(xCoordinate, yCoordinate);
         verticesEightCircle.push(point);
@@ -497,8 +1350,12 @@ function nineCircle()
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
         
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
+        
+                var expansionlocal;
+        var count1=count/9;
+        expansionlocal=expansionvariable+count1;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
 
         var point = vec2(xCoordinate, yCoordinate);
         verticesNineCircle.push(point);
@@ -518,8 +1375,12 @@ function tenCircle()
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
         
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
+        
+                var expansionlocal;
+        var count1=count/10;
+        expansionlocal=expansionvariable+count1;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
 
         var point = vec2(xCoordinate, yCoordinate);
         verticesTenCircle.push(point);
@@ -539,8 +1400,12 @@ function elevenCircle()
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
         
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
+        
+                var expansionlocal;
+        var count1=count/11;
+        expansionlocal=expansionvariable+count1;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
 
         var point = vec2(xCoordinate, yCoordinate);
         verticesElevenCircle.push(point);
@@ -560,8 +1425,12 @@ function twelveCircle()
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
         
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
+        
+                var expansionlocal;
+        var count1=count/12;
+        expansionlocal=expansionvariable+count1;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
 
         var point = vec2(xCoordinate, yCoordinate);
         verticesTwelveCircle.push(point);
@@ -581,8 +1450,13 @@ function thirteenCircle()
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
         
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
+        
+        
+                var expansionlocal;
+        var count1=count/13;
+        expansionlocal=expansionvariable+count1;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
 
         var point = vec2(xCoordinate, yCoordinate);
         verticesThirteenCircle.push(point);
@@ -602,8 +1476,12 @@ function fourteenCircle()
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
         
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
+        
+                var expansionlocal;
+        var count1=count/14;
+        expansionlocal=expansionvariable+count1;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
 
         var point = vec2(xCoordinate, yCoordinate);
         verticesFourteenCircle.push(point);
@@ -622,8 +1500,13 @@ function fifthteenCircle()
         var index = ATTRIBUTES * i + 2;
         var angle = anglePerFan * (i+1);
         
-        var xCoordinate = xCenterOfCircle + Math.cos(angle) * 0.05;
-        var yCoordinate = yCenterOfCircle + Math.sin(angle) * 0.05;
+        
+        
+                var expansionlocal;
+        var count1=count/15;
+        expansionlocal=expansionvariable+count1;
+        var xCoordinate = xCenterOfCircle + Math.cos(angle) * expansionlocal;
+        var yCoordinate = yCenterOfCircle + Math.sin(angle) * expansionlocal;
 
         var point = vec2(xCoordinate, yCoordinate);
         verticesFifteenCircle.push(point);
@@ -695,5 +1578,6 @@ function render()
     gl.bindBuffer( gl.ARRAY_BUFFER, bufferId15 );
     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
     gl.drawArrays( gl.TRIANGLE_FAN, 0, verticesFifteenCircle.length );
+    
 
 }
