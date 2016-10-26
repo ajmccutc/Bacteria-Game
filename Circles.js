@@ -60,7 +60,8 @@ var lastMouseY = null;
 var vec2coordinates = null;
 
 //The following variables is so that you can remove the circles from the render function
-
+var EightCirclevisible = true;
+var SevenCircleVisible = true;
 window.onload = function init()
 {
             
@@ -697,15 +698,17 @@ function render()
     gl.bindBuffer( gl.ARRAY_BUFFER, bufferId6 );
     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
     gl.drawArrays( gl.TRIANGLE_FAN, 0, verticesSixCircle.length );
-
-    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId7 );
-    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
-    gl.drawArrays( gl.TRIANGLE_FAN, 0, verticesSevenCircle.length );
-
-    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId8 );
-    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
-    gl.drawArrays( gl.TRIANGLE_FAN, 0, verticesEightCircle.length );
-
+    
+    if (SevenCircleVisible){
+        gl.bindBuffer( gl.ARRAY_BUFFER, bufferId7 );
+        gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+        gl.drawArrays( gl.TRIANGLE_FAN, 0, verticesSevenCircle.length );
+    }
+    if (EightCircleVisible){
+        gl.bindBuffer( gl.ARRAY_BUFFER, bufferId8 );
+        gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
+        gl.drawArrays( gl.TRIANGLE_FAN, 0, verticesEightCircle.length );
+    }
     gl.bindBuffer( gl.ARRAY_BUFFER, bufferId9 );
     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
     gl.drawArrays( gl.TRIANGLE_FAN, 0, verticesNineCircle.length );
