@@ -58,9 +58,8 @@ var mouseDown = false;
 var lastMouseX = null;
 var lastMouseY = null;
 var vec2coordinates = null;
-//This is an experiement to see what the colour of the object "under" the mouse is
-//this is so that we can remove the x,y,z references and make it "easier" to program
-var colouratmouse = null;
+
+//The following variables is so that you can remove the circles from the render function
 
 window.onload = function init()
 {
@@ -340,7 +339,7 @@ window.onload = function init()
             for (var i = 0; i<verticesEightCircle.length;i++){
                  //only checks if mouse clicks on vertices
                 if (verticesEightCircle[i]==vertexMouse ){
-                    
+                    EightCirclevisible = false;
                   
             }
                 
