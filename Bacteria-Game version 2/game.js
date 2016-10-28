@@ -23,19 +23,22 @@ var anglePerFan;
 var vPosition;
 var click = 0;
 //(arcangle, size, colour, isActive)
-var square[6] = vec4();
+var square;
+
+//need to figure out where to push the squares onto an array
 window.onload = function init() {
     canvas = document.getElementById("gl-canvas");
     gl = WebGLUtils.setupWebGL(canvas);
     if (!gl) {
         alert("WebGL isn't available");
     }
+    //mouse down function
     canvas.addEventListener("mousedown", function () {
         gl.bindBuffer(gl.ARRAY_BUFFER, vBuffer);
         //sets the x,y coordinate for the mouse click
         var t = vec2(2 * event.clientX / canvas.width - 1, 1.05 * (canvas.height - event.clientY) / canvas.height - 1);
         for (var i = 0; i< 6;i++){
-            if (square[i][3]==true && square[i][0]
+            if (square[i][3]==true){
                 
             }
         }
@@ -45,7 +48,7 @@ window.onload = function init() {
     gl.clearColor(0.5, 0.5, 0.5, 1.0);
     //
     //  Load shaders and initialize attribute buffers
-    //The remainder of the code is taken from the square.js file
+    //The remainder of the code till render is taken from the square.js file
     var program = initShaders(gl, "vertex-shader", "fragment-shader");
     gl.useProgram(program);
     var vBuffer = gl.createBuffer();
