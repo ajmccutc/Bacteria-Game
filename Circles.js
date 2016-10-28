@@ -332,7 +332,7 @@ window.onload = function init()
     // set up some sample squares
     //make an array of x,y coordinates for center of circles
     
-    document.getElementById("gl-canvas").onclick = function(){
+/*    document.getElementById("gl-canvas").onclick = function(){
         
             lastMouseX = event.clientX;
             lastMouseY = event.clientY;
@@ -346,7 +346,7 @@ window.onload = function init()
                 
         }
     }
-    
+    */
     render();
 }
 
@@ -699,16 +699,15 @@ function render()
     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
     gl.drawArrays( gl.TRIANGLE_FAN, 0, verticesSixCircle.length );
     
-    if (SevenCircleVisible){
+    
         gl.bindBuffer( gl.ARRAY_BUFFER, bufferId7 );
         gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
         gl.drawArrays( gl.TRIANGLE_FAN, 0, verticesSevenCircle.length );
-    }
-    if (EightCircleVisible){
+  
         gl.bindBuffer( gl.ARRAY_BUFFER, bufferId8 );
         gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
         gl.drawArrays( gl.TRIANGLE_FAN, 0, verticesEightCircle.length );
-    }
+    
     gl.bindBuffer( gl.ARRAY_BUFFER, bufferId9 );
     gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0 );
     gl.drawArrays( gl.TRIANGLE_FAN, 0, verticesNineCircle.length );

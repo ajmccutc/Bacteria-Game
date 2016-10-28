@@ -1,0 +1,53 @@
+ randindex = Math.floor(noOfFans*Math.random());
+    if (x==0){
+    for (var i = 0;i<noOfFans;i++){
+        if (randindex<noOfFans){
+            if (randindex%2==0){
+                square1vertices.push(verticesFirstCircle[randindex])
+            }
+            else{
+                var xCoordinate = verticesFirstCircle[randindex][0]+0.2;
+                var yCoordinate = verticesFirstCircle[randindex][0]+0.2;
+                var point = vec2(xCoordinate,yCoordinate)
+                square1vertices.push(point)
+            }
+        }
+        else{
+            if ((randindex-i)%2==0){
+                square1vertices.push(verticesFirstCircle[randindex-i])
+            }
+            else{
+                var xCoordinate = verticesFirstCircle[randindex-i][0]+0.2;
+                var yCoordinate = verticesFirstCircle[randindex-i][0]+0.2;
+                var point = vec2(xCoordinate,yCoordinate)
+                square1vertices.push(point)
+            }
+        }
+    }
+    }
+    if (x==1){
+            for (var i = 0;i<noOfFans;i++){
+        if (randindex<noOfFans){
+            if (randindex%2==0){
+                square2vertices.push(verticesFirstCircle[randindex])
+            }
+            else{
+                var xCoordinate = verticesFirstCircle[randindex][0]+0.2;
+                var yCoordinate = verticesFirstCircle[randindex][0]+0.2;
+                var point = vec2(xCoordinate,yCoordinate)
+                square2vertices.push(point)
+            }
+        }
+        else{
+            if ((randindex-i)%2==0){
+                square2vertices.push(verticesFirstCircle[randindex-i])
+            }
+            else{
+                var xCoordinate = verticesFirstCircle[randindex-i][0]+0.2;
+                var yCoordinate = verticesFirstCircle[randindex-i][0]+0.2;
+                var point = vec2(xCoordinate,yCoordinate)
+                square2vertices.push(point)
+            }
+        }
+    }
+    }
